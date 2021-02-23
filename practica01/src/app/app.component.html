@@ -1,5 +1,5 @@
 <body>
-       <h1>Comanda</h1>  
+       <h1>{{title}}</h1>  
       <div id="consumicion">
           Consumición: 
           <select id='comida' [(ngModel)]="elementoSeleccionado">
@@ -16,6 +16,7 @@
         <tr *ngFor='let producto of pedido; let linea=index'>
           <td id='producto'>{{producto.plato}}</td>
           <td id='precio'>{{producto.precio}}€</td>
+          <td id='cantidad'>x{{producto.cantidad}}</td>
           <button type="button" (click)='delComanda(linea)'>-</button>
         </tr> 
         <tr id='total'>
