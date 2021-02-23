@@ -1,27 +1,37 @@
 <body>
-       <h1>{{title}}</h1>  
+      <h1>{{title}}</h1>  
+
       <div id="consumicion">
-          Consumición: 
-          <select id='comida' [(ngModel)]="elementoSeleccionado">
-            <option *ngFor='let producto of carta' [ngValue]="producto">{{producto.plato}} {{producto.precio}}€</option>
+          Consumición:
+
+        <select id='comida' [(ngModel)]="elementoSeleccionado">
+          <option *ngFor='let producto of carta' [ngValue]="producto">{{producto.plato}} {{producto.precio}}€</option>
         </select>
-        <button type="button" (click)='addComanda()'>+</button>
+
+        <button  class='botones' type="button" (click)='addComanda()'>+</button>
+      
       </div>
   
-      <table id="Historial_Pedidos">
-        <tr>
-          <th id='producto'>Producto</th>
-          <th id='precio'>Precio</th>
-        </tr>
-        <tr *ngFor='let producto of pedido; let linea=index'>
-          <td id='producto'>{{producto.plato}}</td>
-          <td id='precio'>{{producto.precio}}€</td>
-          <td id='cantidad'>x{{producto.cantidad}}</td>
-          <button type="button" (click)='delComanda(linea)'>-</button>
-        </tr> 
-        <tr id='total'>
-          <td id='producto'>TOTAL</td>
-          <td id='precio'>{{totalPedido}}€</td>
-        </tr>   
-      </table>  
+      <div id="contenedorHistorial">
+        
+        <table id="Historial_Pedidos">
+          Consumiciones: <br>
+          <tr>
+            <th class="columna">Producto</th>
+            <th class="columna">Precio</th>
+          </tr>
+  
+          <tr  *ngFor='let producto of pedido; let linea=index'>
+            <td class="columna">{{producto.plato}}</td>
+            <td class="columna">{{producto.precio}}€</td>
+            <td class="columna">x{{producto.cantidad}}</td>
+            <button class='botones' type="button" (click)='delComanda(linea)'>-</button>
+          </tr> 
+  
+          <tr>
+            <td class="columna total" >TOTAL</td>
+            <td  class="columna total">{{totalPedido}}€</td>
+          </tr>   
+        </table>  
+      </div>     
   </body>
