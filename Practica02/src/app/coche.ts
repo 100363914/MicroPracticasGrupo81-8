@@ -31,7 +31,6 @@ export class Coche {
         words.push(...this.marca.split(' '));//... -> spread
         words.push(...this.modelo.split(' '));
         words.push(this.precio + '');
-        words.push(this.estado);
 
         return words.map((value:string) => {
             return value.toLowerCase();
